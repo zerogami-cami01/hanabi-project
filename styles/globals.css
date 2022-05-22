@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -14,3 +18,70 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.triangleRight {
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 20px solid #bce4fc;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 96%;
+  transform: translate(0, -50%);
+}
+
+.triangleLeft {
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-right: 20px solid #bce4fc;
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  right: 96%;
+  transform: translate(0, -50%);
+}
+
+.swiper {
+  /* height: 670px;
+  width: auto; */
+}
+
+.credit-img {
+  z-index: 1000;
+  opacity: 0;
+  animation: fadein 0.5s linear forwards;
+}
+
+.credit {
+  opacity: 1;
+  animation: fadeout 0.5s linear forwards;
+}
+
+.batsu {
+  z-index: 2000;
+}
+
+.batsu:after {
+  content: "batsu";
+  color: white;
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.max-w-screen-lg {
+  margin: 0 auto;
+  height: 768px;
+  background: black url('./../public/images/back.png') no-repeat center;
+}
+
