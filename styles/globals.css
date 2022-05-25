@@ -19,7 +19,7 @@ a {
   box-sizing: border-box;
 }
 
-.triangleRight {
+.swiper-button-next {
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
   border-left: 20px solid #bce4fc;
@@ -30,7 +30,7 @@ a {
   transform: translate(0, -50%);
 }
 
-.triangleLeft {
+.swiper-button-prev {
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
   border-right: 20px solid #bce4fc;
@@ -39,6 +39,11 @@ a {
   top: 50%;
   right: 96%;
   transform: translate(0, -50%);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+ display: none;
 }
 
 .swiper {

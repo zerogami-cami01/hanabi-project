@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from 'next-image-export-optimizer'
 import { Swiper, SwiperSlide } from 'swiper/react' //カルーセル用のタグをインポート
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper' //使いたい機能をインポート
 import 'swiper/css/autoplay'
@@ -8,8 +8,8 @@ SwiperCore.use([Pagination, Navigation, Autoplay])
 
 // カルーセルにする画像のソースをリストにします
 const images = [
-  '/../public/images/tips01.png',
-  '/../public/images/tips01.png',
+  'images/tips01.png',
+  'images/tips01.png',
 ]
 
 const Slideshow = () => {
@@ -34,7 +34,7 @@ const Slideshow = () => {
     <div className="block">
       <div id="credit" className="relative credit">
       <Image
-        src="/../public/images/credit.png"
+        src="images/credit.png"
         width={1025}
         height={769}
         alt=""
@@ -48,7 +48,7 @@ const Slideshow = () => {
       
       <div className="relative pl-12 top-0">
         <Image
-          src="/../public/images/title.png"
+          src="images/title.png"
           width={626}
           height={89}
           alt=""
@@ -58,12 +58,12 @@ const Slideshow = () => {
       <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2">
         <Swiper
           slidesPerView={1} //一度に表示するスライドの数
-          onInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }}
+          navigation={
+            {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev"
+            }
+          }
           pagination={
             { 
               el: '.swiper-pagination',
@@ -93,8 +93,8 @@ const Slideshow = () => {
           })}
         </Swiper>
 
-        <div className="triangleRight" ref={nextRef}></div>
-        <div className="triangleLeft" ref={prevRef}></div>
+        <div className="swiper-button-next"></div>
+        <div className="swiper-button-prev"></div>
         <div className="swiper-pagination"></div>
       </div>
     </div>
